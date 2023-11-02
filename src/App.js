@@ -1,6 +1,7 @@
 import React from "react";
 import bgMobile from "./images/bg-main-mobile.png";
 import bgDesktop from "./images/bg-main-desktop.png";
+import logo from "./images/card-logo.svg";
 
 function App() {
   return (
@@ -13,9 +14,11 @@ function App() {
           </picture>
         </div>
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
-          <div>
-            <article>Front credit card</article>
-            <article>Back credit card</article>
+          <div className="mt-10 mx-5">
+            <article className="front-card p-5">
+              <img src={logo} alt="logo" />
+            </article>
+            <article className="back-card"></article>
           </div>
           <div>form</div>
         </div>
