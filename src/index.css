@@ -16,16 +16,24 @@
 }
 
 .back-card {
-   background: url("./images/bg-card-back.png") no-repeat center/cover;
+  background: url("./images/bg-card-back.png") no-repeat center/cover;
   height: 200px;
   width: 320px;
   border-radius: 10px;
 }
 
+.back-card p {
+  top: 5.2rem;
+}
+
 @media (min-width: 1024px) {
-  .front-card, .back-card {
+  .front-card,
+  .back-card {
     height: 300px;
     width: 500px;
     border-radius: 20px;
+  }
+  .back-card p {
+    top: 8.3rem;
   }
 }
