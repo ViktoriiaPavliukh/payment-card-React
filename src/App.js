@@ -15,8 +15,17 @@ function App() {
         </div>
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
           <div className="mt-10 mx-5">
-            <article className="front-card p-5">
-              <img src={logo} alt="logo" />
+            <article className="front-card p-5 flex flex-col justify-between">
+              <img src={logo} alt="logo" className="w-20 lg:w-28" />
+              <div className="text-white">
+                <h2 className="text-xl mb-6  tracking-widest lg:text-4xl">
+                  1234 5678 9012 3456
+                </h2>
+                <ul className="flex items-center justify-between uppercase text-xl tracking-widest">
+                  <li className="">Thomas Sankara</li>
+                  <li>00/00</li>
+                </ul>
+              </div>
             </article>
             <article className="back-card"></article>
           </div>
