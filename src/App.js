@@ -7,7 +7,7 @@ function App() {
   return (
     <>
       <section>
-        <div className="absolute -z-10">
+        <div className="absolute -z-10 max-h-80">
           <picture>
             <source media="(min-width: 1024px)" srcSet={bgDesktop} />
             <img src={bgMobile} alt="bg-mobile" />
@@ -33,7 +33,57 @@ function App() {
               </p>
             </article>
           </div>
-          <div>form</div>
+          <div>
+            <form className="flex flex-col justify-center h-screen gap-8 max-w-lg">
+              <div>
+                <label htmlFor="cardholder_name">Cardholder Name</label>
+                <input
+                  type="text"
+                  name="cardholder_name"
+                  id="cardholder_name"
+                  placeholder="e.g. Paul Smith"
+                  required
+                />
+              </div>
+              <div>
+                <label htmlFor="card_number">Card Number</label>
+                <input
+                  type="text"
+                  name="card_number"
+                  id="card_number"
+                  placeholder="e.g. 1234 5678 9012 3456"
+                  maxLength={19}
+                  required
+                />
+              </div>
+              <article className="flex item-center justify-between gap-8">
+                <div className="flex-1">
+                  <label htmlFor="expiry_date">Exp.Date (MM/YY)</label>
+                  <input
+                    type="month"
+                    name="expiry_date"
+                    id="expiry_date"
+                    placeholder="MM YY"
+                    required
+                  />
+                </div>
+                <div className="flex-1">
+                  <label htmlFor="cvc">CVC</label>
+                  <input
+                    type="text"
+                    name="cvc"
+                    id="cvc"
+                    placeholder="e.g. 123"
+                    maxLength={3}
+                    required
+                  />
+                </div>
+              </article>
+              <button type="submit" className="btn">
+                Confirm
+              </button>
+            </form>
+          </div>
         </div>
       </section>
     </>
