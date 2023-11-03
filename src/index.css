@@ -26,6 +26,19 @@
   top: 5.2rem;
 }
 
+form label {
+  @apply block uppercase tracking-wider text-slate-800 mb-2 text-sm;
+}
+
+form input {
+  @apply border border-slate-300 py-3 px-4 rounded outline-none w-full;
+}
+
+form .btn {
+  background-color: hsl(278, 68%, 11%);
+  @apply py-3 px-6 rounded shadow text-white text-base tracking-wider lg:text-lg;
+}
+
 @media (min-width: 1024px) {
   .front-card,
   .back-card {
