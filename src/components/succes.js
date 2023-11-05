@@ -3,7 +3,7 @@ import tick from "../images/icon-complete.svg";
 export default function Success({ setConfirmed }) {
   return (
     <>
-      <div className="flex flex-col items-center justify-center h-screen max-w-lg mx-auto">
+      <div className="success flex flex-col items-center justify-center lg:h-screen max-w-lg mx-auto">
         <img src={tick} alt="success" className="block mx-auto" />
         <h1 className="text-slate-800 text-3xl my-6 uppercase text-center">
           Thank you

@@ -9,21 +9,31 @@
 }
 
 .front-card {
+  position: absolute;
+  top: 180px;
+  z-index: 20;
   background: url("./images/bg-card-front.png") no-repeat center/cover;
-  height: 200px;
   width: 320px;
+  height: 230px;
   border-radius: 10px;
 }
 
 .back-card {
+  position: absolute;
+  right: 20px;
   background: url("./images/bg-card-back.png") no-repeat center/cover;
-  height: 200px;
+  height: 230px;
   width: 320px;
   border-radius: 10px;
 }
 
 .back-card p {
-  top: 5.2rem;
+  top: 6.15em;
+}
+
+form,
+.success {
+  margin-top: 350px;
 }
 
 form label {
@@ -39,14 +49,37 @@ form input {
   @apply py-3 px-6 rounded shadow text-white text-base tracking-wider lg:text-lg;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 786px) {
   .front-card,
   .back-card {
     height: 300px;
     width: 500px;
     border-radius: 20px;
   }
+
+  .front-card {
+    top: 50px;
+  }
+
+  .back-card {
+    right: 0;
+  }
+
+  form, .success {
+    margin-top: 500px;
+  }
+
   .back-card p {
     top: 8.3rem;
+  }
+}
+
+@media (min-width: 786px) {
+  .front-card,
+  .back-card {
+    position: relative;
+  }
+  form, .success {
+    margin-top: 0;
   }
 }
