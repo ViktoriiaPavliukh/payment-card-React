@@ -1,6 +1,5 @@
 import React from "react";
 import { useState } from "react";
-import { format } from "date-fns";
 import Success from "./components/succes";
 import bgMobile from "./images/bg-main-mobile.png";
 import bgDesktop from "./images/bg-main-desktop.png";
@@ -10,21 +9,58 @@ function App() {
   const [confirmed, setConfirmed] = useState(false);
   const [name, setName] = useState("");
   const [number, setNumber] = useState("");
-  const [date, setDate] = useState("01/24");
+  const [date, setDate] = useState("01/25");
   const [cvc, setCvc] = useState("");
 
+  // function formatDate(dateString) {
+  //   if (!dateString) return ""; // If dateString is null or undefined, return an empty string
+
+  //   // Split dateString into month and year
+  //   const [month, year] = dateString.split("/");
+  //   if (!month || !year) return ""; // If month or year is empty, return an empty string
+
+  //   // Ensure month and year are two digits
+  //   const formattedMonth = month.padStart(2, "0");
+  //   const formattedYear = year.length === 2 ? `${year}` : year; // If year is in YY format, convert it to YYYY format
+
+  //   // Return formatted date
+  //   return `${formattedMonth} / ${formattedYear}`;
+  // }
+
+  function formatDate(dateString) {
+    if (!dateString) return ""; // If dateString is null or undefined, return an empty string
+
+    // Split dateString into year and month
+    const [year, month] = dateString.split("-");
+    if (!month || !year) return ""; // If month or year is empty, return an empty string
+
+    // Return formatted date
+    return `${month.padStart(2, "0")} / ${year.slice(-2)}`;
+  }
+  const handleConfirm = () => {
+    setConfirmed(true);
+    setName("");
+    setNumber("");
+    setDate("01/25");
+    setCvc("");
+  };
+  console.log("Selected Date:", date);
   return (
     <>
-      <section>
+      <section className="flex justify-center md:justify-end">
         <div className="absolute -z-10 w-full">
-          <picture>
+          <picture className="lg:block md:hidden">
             <source media="(min-width: 768px)" srcSet={bgDesktop} />
-            <img src={bgMobile} alt="bg-mobile" className="w-full md:w-1/3" />
+            <img
+              src={bgMobile}
+              alt="bg-mobile"
+              className="w-full md:w-1/2 hidden md:block"
+            />
           </picture>
         </div>
-        <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 sm:gap-8 lg:gap-40 lg:grid-cols-2 max-w-7xl mx-auto">
           <div className="mt-10 mx-5 grid grid-cols-1">
-            <article className="front-card p-5 flex flex-col justify-between">
+            <article className="front-card md:mb-14 p-5 flex flex-col justify-between">
               <img src={logo} alt="logo" className="w-20 lg:w-28" />
               <div className="text-white">
                 <h2 className="text-xl mb-6  tracking-widest lg:text-4xl">
@@ -32,7 +68,7 @@ function App() {
                 </h2>
                 <ul className="flex items-center justify-between uppercase text-xl tracking-widest text-base lg:text-xl">
                   <li>{name}</li>
-                  <li>{format(new Date(date), "MM / yy")}</li>
+                  <li>{formatDate(date)}</li>
                 </ul>
               </div>
             </article>
@@ -51,6 +87,7 @@ function App() {
                     type="text"
                     name="cardholder_name"
                     id="cardholder_name"
+                    maxLength={19}
                     placeholder="e.g. Paul Smith"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
@@ -99,7 +136,7 @@ function App() {
                     />
                   </div>
                 </article>
-                <button onClick={() => setConfirmed(true)} className="btn">
+                <button type="button" onClick={handleConfirm} className="btn">
                   Confirm
                 </button>
               </form>
